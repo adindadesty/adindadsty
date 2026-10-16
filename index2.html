@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Adinda Desty Caesarini</title>
+    <!-- Google Fonts: Fredoka, Outfit, Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --hot-pink: #ff007f;
+            --bubblegum-pink: #ff85a2;
+            --pastel-pink: #fbb1bd;
+            --soft-purple: #c8b6ff;
+            --card-bg: rgba(255, 253, 249, 0.93);
+            --text-dark: #3a0ca3;
+            --text-muted: #4a5568;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background: linear-gradient(180deg, #ffc6ff 0%, #ffd6ff 30%, #ffb5a7 70%, #fcd5ce 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            padding-bottom: 110px;
+        }
+
+        /* --- PINK BEACH ANIMATIONS --- */
+        .pink-beach-world {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* 1. CLOUDS */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50px;
+            opacity: 0.88;
+            animation: floatCloud linear infinite;
+        }
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+        }
+        .cloud-1 { width: 160px; height: 50px; top: 7%; animation-duration: 36s; }
+        .cloud-1::before { width: 55px; height: 55px; top: -22px; left: 20px; }
+        .cloud-1::after { width: 45px; height: 45px; top: -18px; right: 25px; }
+
+        .cloud-2 { width: 230px; height: 65px; top: 20%; animation-duration: 48s; animation-delay: -14s; }
+        .cloud-2::before { width: 90px; height: 90px; top: -40px; left: 30px; }
+        .cloud-2::after { width: 70px; height: 70px; top: -30px; right: 35px; }
+
+        @keyframes floatCloud {
+            0% { left: -250px; }
+            100% { left: 105vw; }
+        }
+
+        /* 2. FLYING SEAGULLS */
+        .bird {
+            position: absolute;
+            width: 20px;
+            height: 12px;
+            animation: flyBird linear infinite;
+            opacity: 0.75;
+        }
+        .bird::before, .bird::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 12px;
+            height: 6px;
+            border-top: 2.5px solid var(--hot-pink);
+            border-radius: 50% 50% 0 0;
+        }
+        .bird::before { left: 0; transform: rotate(-20deg); animation: flapLeft 0.45s ease-in-out infinite alternate; }
+        .bird::after { right: 0; transform: rotate(20deg); animation: flapRight 0.45s ease-in-out infinite alternate; }
+
+        .bird-1 { top: 12%; animation-duration: 20s; }
+        .bird-2 { top: 25%; animation-duration: 26s; animation-delay: -9s; transform: scale(0.75); }
+
+        @keyframes flyBird {
+            0% { left: -50px; }
+            100% { left: 105vw; }
+        }
+        @keyframes flapLeft { 0% { transform: rotate(-30deg); } 100% { transform: rotate(10deg); } }
+        @keyframes flapRight { 0% { transform: rotate(30deg); } 100% { transform: rotate(-10deg); } }
+
+        /* 3. BUTTERFLIES */
+        .butterfly {
+            position: absolute;
+            font-size: 1.6rem;
+            animation: flyButterfly 22s linear infinite;
+            filter: drop-shadow(0 3px 6px rgba(255, 0, 127, 0.4));
+            z-index: 2;
+        }
+        @keyframes flyButterfly {
+            0% { left: -50px; top: 65%; transform: rotate(10deg); }
+            25% { top: 35%; transform: rotate(-15deg); }
+            50% { top: 55%; transform: rotate(15deg); }
+            75% { top: 25%; transform: rotate(-10deg); }
+            100% { left: 105vw; top: 60%; transform: rotate(10deg); }
+        }
+
+        /* 4. CRAWLING CRAB */
+        .crab {
+            position: absolute;
+            bottom: 25px;
+            left: -50px;
+            font-size: 1.6rem;
+            animation: crawlCrab 28s linear infinite;
+            z-index: 6;
+        }
+        @keyframes crawlCrab {
+            0% { left: -50px; transform: rotate(0deg); }
+            50% { transform: rotate(8deg); }
+            100% { left: 105vw; transform: rotate(-8deg); }
+        }
+
+        /* 5. BUBBLES & SPARKLES */
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            bottom: -30px;
+            animation: riseBubble linear infinite;
+            box-shadow: 0 0 10px rgba(255, 133, 162, 0.5);
+        }
+        @keyframes riseBubble {
+            0% { transform: translateY(0) scale(0.8); opacity: 0; }
+            50% { opacity: 0.85; }
+            100% { transform: translateY(-100vh) scale(1.3); opacity: 0; }
+        }
+
+        .y2k-float-item {
+            position: absolute;
+            font-size: 1.4rem;
+            animation: floatUp linear infinite;
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 4px rgba(255, 0, 127, 0.3));
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(105vh) rotate(0deg) scale(0.8); opacity: 0; }
+            30% { opacity: 0.9; }
+            100% { transform: translateY(-10vh) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+
+        /* 6. PINK OCEAN WAVES */
+        .wave-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background-repeat: repeat-x;
+            background-position: 0 bottom;
+            transform-origin: center bottom;
+        }
+
+        .wave1 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z' fill='%23ff85a2' opacity='0.55'%3E%3C/path%3E%3C/svg%3E");
+            animation: moveWave 16s linear infinite;
+            z-index: 3;
+        }
+
+        .wave2 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C200,60 400,10 600,50 C800,90 1000,20 1200,60 L1200,120 L0,120 Z' fill='%23ff007f' opacity='0.35'%3E%3C/path%3E%3C/svg%3E");
+            animation: moveWave 11s linear infinite reverse;
+            z-index: 2;
+        }
+
+        @keyframes moveWave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- STICKY NAV BAR --- */
+        .navbar {
+            position: sticky;
+            top: 15px;
+            z-index: 1000;
+            max-width: 850px;
+            margin: 0 auto 25px auto;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(14px);
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.2);
+            border: 2px solid #ffffff;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--hot-pink);
+            color: #ffffff;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 127, 0.4);
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- HEADER CARD --- */
+        .header-card {
+            background: linear-gradient(135deg, #ff85a2 0%, #ff007f 50%, #7000ff 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(255, 0, 127, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 3px solid #ffffff;
+        }
+
+        .header-card h1 {
+            font-family: 'Fredoka', cursive;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-shadow: 2px 3px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(6px);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 0.88rem;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* --- CONTENT CARDS --- */
+        .cv-section {
+            background: var(--card-bg);
+            border-radius: 26px;
+            padding: 28px 32px;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 25px rgba(112, 0, 255, 0.08);
+            border: 2px solid #ffffff;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cv-section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(255, 0, 127, 0.18);
+        }
+
+        .section-title {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.4rem;
+            color: var(--hot-pink);
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 3px dashed var(--pastel-pink);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile-text {
+            line-height: 1.85;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* --- TIMELINE ITEM --- */
+        .item-block {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--bubblegum-pink);
+        }
+
+        .item-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        /* LOKASI TEPAT DI ATAS TAHUN (SEPERTI CONTOH GAMBAR) */
+        .item-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+            text-align: right;
+        }
+
+        .item-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #3a0ca3;
+        }
+
+        .item-subtitle {
+            font-weight: 600;
+            color: #7209b7;
+            font-size: 0.92rem;
+            margin-bottom: 6px;
+        }
+
+        .item-location {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-style: normal; /* Tidak Miring */
+            font-weight: 500;
+        }
+
+        .item-date {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-style: normal; /* Tidak Miring */
+        }
+
+        /* STANDARD BULLET POINTS */
+        ul.item-bullets {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        ul.item-bullets li {
+            margin-bottom: 8px;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            color: var(--text-dark);
+        }
+
+        /* --- KETERAMPILAN / Y2K STICKER BADGES --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid var(--pastel-pink);
+            border-radius: 20px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(255, 0, 127, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--hot-pink);
+            transform: translateY(-2px);
+        }
+
+        .skill-category-title {
+            font-family: 'Fredoka', cursive;
+            font-weight: 600;
+            font-size: 0.98rem;
+            color: var(--hot-pink);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px dotted var(--soft-purple);
+            padding-bottom: 6px;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .y2k-badge {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.82rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: #ffffff;
+            color: #3a0ca3;
+            border: 1.5px solid var(--bubblegum-pink);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 3px 8px rgba(255, 133, 162, 0.2);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .y2k-badge:hover {
+            transform: scale(1.08) rotate(-2deg);
+            background: var(--hot-pink);
+            color: #ffffff;
+            border-color: var(--hot-pink);
+            box-shadow: 0 6px 14px rgba(255, 0, 127, 0.35);
+        }
+
+        .y2k-badge i {
+            color: var(--hot-pink);
+            font-size: 0.85rem;
+            transition: color 0.25s ease;
+        }
+
+        .y2k-badge:hover i {
+            color: #ffffff;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .header-card h1 { font-size: 1.8rem; }
+            .contact-info { flex-direction: column; gap: 8px; align-items: center; }
+            .item-header { flex-direction: column; align-items: flex-start; }
+            .item-right { align-items: flex-start; text-align: left; margin-top: 4px; }
+            .cv-section { padding: 22px 18px; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PINK BEACH ANIMATED WORLD -->
+    <div class="pink-beach-world">
+        <!-- 1. Clouds -->
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+
+        <!-- 2. Flying Birds -->
+        <div class="bird bird-1"></div>
+        <div class="bird bird-2"></div>
+
+        <!-- 3. Butterfly -->
+        <div class="butterfly">🦋</div>
+
+        <!-- 4. Crawling Crab -->
+        <div class="crab">🦀</div>
+
+        <!-- 5. Rising Bubbles & Sparkles -->
+        <div class="bubble" style="width: 22px; height: 22px; left: 12%; animation-duration: 8s;"></div>
+        <div class="bubble" style="width: 16px; height: 16px; left: 32%; animation-duration: 11s; animation-delay: 2s;"></div>
+        <div class="bubble" style="width: 26px; height: 26px; left: 68%; animation-duration: 10s; animation-delay: 4s;"></div>
+        <div class="bubble" style="width: 18px; height: 18px; left: 88%; animation-duration: 9s; animation-delay: 1s;"></div>
+
+        <div class="y2k-float-item" style="left: 15%; animation-duration: 10s;">✨</div>
+        <div class="y2k-float-item" style="left: 42%; animation-duration: 14s; animation-delay: 3s;">🌸</div>
+        <div class="y2k-float-item" style="left: 78%; animation-duration: 12s; animation-delay: 1s;">⭐</div>
+    </div>
+
+    <!-- NAVIGATION MENU -->
+    <nav class="navbar">
+        <a href="#profil" class="nav-btn"><i class="fa-solid fa-user"></i> Profil</a>
+        <a href="#pendidikan" class="nav-btn"><i class="fa-solid fa-graduation-cap"></i> Pendidikan</a>
+        <a href="#organisasi" class="nav-btn"><i class="fa-solid fa-users"></i> Organisasi</a>
+        <a href="#pengalaman" class="nav-btn"><i class="fa-solid fa-briefcase"></i> Pengalaman</a>
+        <a href="#keterampilan" class="nav-btn"><i class="fa-solid fa-wand-magic-sparkles"></i> Keterampilan</a>
+    </nav>
+
+    <!-- MAIN CV CONTAINER -->
+    <div class="container">
+        
+        <!-- HEADER CARD -->
+        <header class="header-card">
+            <h1>Adinda Desty Caesarini</h1>
+            <div class="header-badge">Curriculum Vitae</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i> Depok, Jawa Barat
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:adindadsty@gmail.com">adindadsty@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    <a href="https://instagram.com/adindadestyy" target="_blank">@adindadestyy</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- PROFIL SECTION -->
+        <section id="profil" class="cv-section">
+            <h2 class="section-title"><i class="fa-solid fa-user-check"></i> Profil</h2>
+            <p class="profile-text">
+                Mahasiswa tahun ketiga yang sedang menempuh pendidikan di Universitas Gunadarma jurusan Sistem Informasi. Sangat termotivasi untuk mengembangkan keterampilannya dan tumbuh menggapai mimpi. Pribadi yang berdedikasi tinggi, disiplin, serta memiliki semangat untuk terus belajar dan berkontribusi dalam dunia digital. Percaya diri dalam kemampuan mengembangkan solusi kreatif dan menghadirkan dampak positif melalui pemanfaatan teknologi.
+            </p>
+        </section>
+
+        <!-- PENDIDIKAN SECTION -->
+        <section id="pendidikan" class="cv-section">
+            <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Pendidikan</h2>
+            
+            <div class="item-block">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Universitas Gunadarma</div>
+                        <div class="item-subtitle">Sistem Informasi</div>
+                    </div>
+                    <!-- LOKASI TEPAT DI ATAS TAHUN -->
+                    <div class="item-right">
+                        <div class="item-location">Depok, Jawa Barat</div>
+                        <div class="item-date">2024 - 2028</div>
+                    </div>
+                </div>
+                <ul class="item-bullets">
+                    <li>IPK: 3,95 / 4,00</li>
+                </ul>
+            </div>
+
+            <div class="item-block" style="margin-top: 20px;">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">SMA Negeri 1 Depok</div>
+                        <div class="item-subtitle">IPA</div>
+                    </div>
+                    <!-- LOKASI TEPAT DI ATAS TAHUN -->
+                    <div class="item-right">
+                        <div class="item-location">Depok, Jawa Barat</div>
+                        <div class="item-date">2021 - 2024</div>
+                    </div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Nilai Akhir: 90,87</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PENGALAMAN ORGANISASI SECTION -->
+        <section id="organisasi" class="cv-section">
+            <h2 class="section-title"><i class="fa-solid fa-users"></i> Pengalaman Organisasi</h2>
+            
+            <div class="item-block">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Kejar Mimpi Depok by CIMB Niaga</div>
+                        <div class="item-subtitle">Staff Program</div>
+                    </div>
+                    <div class="item-right">
+                        <div class="item-date">2025 - 2026</div>
+                    </div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Berkontribusi sebagai Tim Sponsor dalam Business Competition Class 2025 yang diselenggarakan oleh Kejar Mimpi Depok untuk peserta eksternal, dengan partisipasi sekitar 600 mahasiswa dari seluruh Indonesia.</li>
+                    <li>Berperan dalam Tim Weekly Learning Self Development internal Kejar Mimpi Depok yang berfokus pada pengembangan diri dan peningkatan kapasitas anggota.</li>
+                </ul>
+            </div>
+
+            <div class="item-block">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Rohis SMA Negeri 1 Depok</div>
+                        <div class="item-subtitle">Wakil Ketua Divisi Pusat Sumber Daya Pengurus (PSDP)</div>
+                    </div>
+                    <div class="item-right">
+                        <div class="item-date">2022 - 2023</div>
+                    </div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Berkoordinasi dengan pihak sekolah dan pembina tahsin dalam pelaksanaan kegiatan Tahsin Rohis yang diikuti 40 orang ikhwan dan akhwat internal maupun eksternal, serta menyelenggarakan Forum Orang Tua sebagai wadah komunikasi antara pengurus dan orang tua peserta.</li>
+                    <li>Bertanggung jawab dalam pembuatan dan pendistribusian Pesan Tausiyah setiap minggu ke grup kelas, mulai dari penyusunan materi, desain konten, hingga penulisan caption, serta berkontribusi dalam kegiatan SEMAWA (Sehari Bersama Ikhwan dan Akhwat) yang diikuti sekitar 30 pengurus internal rohis.</li>
+                </ul>
+            </div>
+
+            <div class="item-block">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Organisasi Intra Sekolah SMANSA (OSIS)</div>
+                        <div class="item-subtitle">Anggota Seksi Bidang Pendahuluan Bela Negara</div>
+                    </div>
+                    <div class="item-right">
+                        <div class="item-date">2021 - 2022</div>
+                    </div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Berkontribusi dalam pembuatan dan publikasi konten edukatif Hari Bumi serta Kuis Bela Negara melalui Instagram @acara_smansa, yang menjangkau lebih dari 3.000 audiens melalui Instagram Story.</li>
+                    <li>Terlibat sebagai panitia sekaligus juri lomba kebersihan yang diikuti 21 kelas, membantu penyelenggaraan Lomba Cepat Tepat Nusantara dengan 63 peserta, serta melakukan pengecekan atribut siswa setiap hari sebagai bagian dari penerapan kedisiplinan sekolah.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROGRAM, MAGANG, SUKARELAWAN SECTION -->
+        <section id="pengalaman" class="cv-section">
+            <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Program, Magang & Sukarelawan</h2>
+
+            <div class="item-block">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">@adzra.ardl</div>
+                        <div class="item-subtitle">Manajer Proyek & Editor Konten</div>
+                    </div>
+                    <div class="item-right">
+                        <div class="item-date">2025 - Sekarang</div>
+                    </div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Mengelola koordinasi proyek, alur kerja, serta pelaksanaan kegiatan untuk memastikan seluruh program berjalan secara terstruktur dan tepat waktu.</li>
+                    <li>Menyunting dan meninjau konten publikasi guna memastikan kualitas penulisan, akurasi informasi, dan konsistensi komunikasi.</li>
+                    <li>Menjadi narahubung utama dengan mengoordinasikan komunikasi bersama tim, mitra, dan pemangku kepentingan untuk mendukung kelancaran kolaborasi.</li>
+                </ul>
+            </div>
+
+            <div class="item-block">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">TK Kepik</div>
+                        <div class="item-subtitle">Manajer Media Sosial & Pemasaran Digital</div>
+                    </div>
+                    <div class="item-right">
+                        <div class="item-date">2025 - 2026</div>
+                    </div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Mengelola perencanaan dan publikasi konten media sosial untuk mempromosikan program sekolah, kegiatan pembelajaran, dan informasi kepada orang tua.</li>
+                    <li>Mengembangkan konten kreatif dan edukatif mengenai kreativitas, perkembangan anak usia dini, serta aktivitas pembelajaran untuk meningkatkan keterlibatan audiens.</li>
+                    <li>Mengoordinasikan materi promosi dan dokumentasi kegiatan sekolah guna memperkuat citra sekolah serta meningkatkan jangkauan informasi kepada masyarakat.</li>
+                </ul>
+            </div>
+
+            <div class="item-block">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Semai Ilmu</div>
+                        <div class="item-subtitle">Tim Aksi dan Inovasi</div>
+                    </div>
+                    <div class="item-right">
+                        <div class="item-date">2025 - Sekarang</div>
+                    </div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Berkontribusi sebagai Tim Aksi dan Inovasi dalam merancang dan melaksanakan program pendidikan literasi dan lingkungan, serta mendampingi anak-anak sebagai kakak fasilitator dengan mengedepankan advokasi anak, keberlanjutan, dan inklusivitas.</li>
+                    <li>Menjangkau 50+ anak dari kelompok marjinal melalui program pendidikan literasi dan lingkungan, serta menyelenggarakan program pengembangan keterampilan secara luring yang diikuti oleh 100+ peserta.</li>
+                </ul>
+            </div>
+
+            <div class="item-block">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Heroes XI</div>
+                        <div class="item-subtitle">Tim Sponsor</div>
+                    </div>
+                    <div class="item-right">
+                        <div class="item-date">2025</div>
+                    </div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Berkontribusi dalam mencari sponsor dan menjalin kerja sama untuk mendukung kebutuhan acara HEROES XI BEM FIKTI Universitas Gunadarma.</li>
+                    <li>Terlibat dalam pelaksanaan kegiatan sosial di Kampung Gamprit dan SDN Sukakarya 02, meliputi edukasi literasi, perbaikan fasilitas sekolah, kelas kreatif siswa, edukasi pengolahan limbah, serta penyuluhan dan pemeriksaan kesehatan bagi warga dan siswa.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- KETERAMPILAN SECTION -->
+        <section id="keterampilan" class="cv-section">
+            <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Keterampilan</h2>
+
+            <div class="skills-grid">
+                
+                <!-- Tools / Software -->
+                <div class="skill-category">
+                    <div class="skill-category-title">
+                        <i class="fa-solid fa-laptop-code"></i> Tools / Software
+                    </div>
+                    <div class="badge-list">
+                        <span class="y2k-badge"><i class="fa-brands fa-html5"></i> HTML</span>
+                        <span class="y2k-badge"><i class="fa-brands fa-java"></i> Java</span>
+                        <span class="y2k-badge"><i class="fa-brands fa-php"></i> PHP</span>
+                        <span class="y2k-badge"><i class="fa-solid fa-code"></i> Visual Studio Code</span>
+                        <span class="y2k-badge"><i class="fa-solid fa-cube"></i> Lazarus</span>
+                        <span class="y2k-badge"><i class="fa-solid fa-file-excel"></i> Microsoft Office</span>
+                        <span class="y2k-badge"><i class="fa-brands fa-google"></i> Google Workspace (Docs, Drive)</span>
+                    </div>
+                </div>
+
+                <!-- Keahlian Pendukung & Konten -->
+                <div class="skill-category">
+                    <div class="skill-category-title">
+                        <i class="fa-solid fa-palette"></i> Keahlian Pendukung & Konten
+                    </div>
+                    <div class="badge-list">
+                        <span class="y2k-badge"><i class="fa-solid fa-palette"></i> Canva</span>
+                        <span class="y2k-badge"><i class="fa-solid fa-video"></i> Capcut</span>
+                    </div>
+                </div>
+
+                <!-- Kemampuan Individu -->
+                <div class="skill-category">
+                    <div class="skill-category-title">
+                        <i class="fa-solid fa-user-gear"></i> Kemampuan Individu
+                    </div>
+                    <div class="badge-list">
+                        <span class="y2k-badge"><i class="fa-solid fa-people-group"></i> Kerja sama dalam tim</span>
+                        <span class="y2k-badge"><i class="fa-solid fa-comments"></i> Komunikatif</span>
+                        <span class="y2k-badge"><i class="fa-solid fa-clock"></i> Disiplin</span>
+                        <span class="y2k-badge"><i class="fa-solid fa-shield-heart"></i> Bertanggung jawab terhadap tugas yang diberikan</span>
+                    </div>
+                </div>
+
+                <!-- Bahasa -->
+                <div class="skill-category">
+                    <div class="skill-category-title">
+                        <i class="fa-solid fa-language"></i> Bahasa
+                    </div>
+                    <div class="badge-list">
+                        <span class="y2k-badge"><i class="fa-solid fa-flag"></i> Indonesia</span>
+                        <span class="y2k-badge"><i class="fa-solid fa-globe"></i> Inggris</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- OCEAN ANIMATION AT BOTTOM -->
+    <div class="wave-container">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+    </div>
+
+    <!-- SCROLLSPY JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.cv-section');
+            const navBtns = document.querySelectorAll('.nav-btn');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('href') === `#${current}`) {
+                        btn.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
